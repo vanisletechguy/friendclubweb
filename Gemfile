@@ -41,6 +41,7 @@ gem 'jquery-rails'
 gem 'font-awesome-less'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'simple_form_fancy_uploads'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 
 group :development, :test do
