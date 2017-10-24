@@ -39,7 +39,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'jquery-rails'
 gem 'font-awesome-less'
-
+gem 'carrierwave', '~> 1.2', '>= 1.2.1'
+gem 'simple_form_fancy_uploads'
 
 
 group :development, :test do
