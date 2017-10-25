@@ -33,9 +33,13 @@ class UsersController < ApplicationController
 	end
 
 	def my_posts
-		@user = User.find(params[:id])
+		@user = current_user
 		@posts = current_user.posts
 		# @user_stocks = @user.user_stocks
+	end
+
+	def view_friend
+		@current_friend = User.find(params[:friend])
 	end
 
 	def show

@@ -1,0 +1,23 @@
+<h1>view friend page</h1>
+
+
+<dl class="dl-horizontal">
+	<dt><strong>Full Name</strong></dt>
+	<dd><%= @current_friend.first_name %></dd>
+	<dt><strong>Email</strong></dt>
+	<dd><%= @current_friend.email %></dd>
+</dl>
+
+
+
+<table class="table table-bordered">
+
+	<tbody>
+		<% @current_friend.posts.each do |post| %>
+			<tr>
+				<td><%= post.title %></td>
+				<td><%= post.content %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
