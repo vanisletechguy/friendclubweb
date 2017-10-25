@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
   	devise_for :users, :controllers => { :registrations => "user/registrations" }
 
+	namespace :api, defaults: {format: 'json'} do 
+  		namespace :v1 do
+  			resources :posts
+  			resources :users
+  		end
+  	end
+  	
   	resources :users, only: [:show]
   	resources :friendships
 	resources :posts
