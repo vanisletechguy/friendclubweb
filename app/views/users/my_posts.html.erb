@@ -1,16 +1,47 @@
-<h2>My Posts</h2>
 
-<table class="table table-bordered">
+<style>
+.cd {
+      border: 2px solid blue;
+    }
+.mydiv {
+    width: 50%;
+    margin-left: 0px auto;
+    margin-right: 0px auto;
+    float: none;
+}
+</style>
 
-	<tbody>
-		<% @posts.each do |post| %>
-			<tr>
-				<td><%= post.title %></td>
-				<td><%= post.content %></td>
-				<td><%= image_tag post.image.thumb %></td>
-				<td><%= post.longitude %></td>
-				<td><%= post.latitude %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+
+<div class="container container-table mydiv">
+	<h2>My Posts</h2>
+
+	<table class="table table-bordered text-center">
+		<tbody>
+			<% @posts.each do |post| %>
+				<tr>
+					<div class="card cd" style="width: 40rem">
+						<div class="card-header">
+							<ul class="nav nav-tabs card-header-tabs">
+							  <li class="nav-item">
+							    <a class="nav-link active" href="#">Show Post</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" href="#">Comment</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link disabled" href="#"><%= post.user.first_name %></a>
+							  </li>
+							</ul>
+						</div>
+						<div class="card-block">
+							<h4 class="card-title"><%= post.title %></h4>
+							<%= image_tag post.image.thumb, :class => "card-img-top"%>
+							<p class="card-text"><%= post.content %></p>
+							<a href="#">Show</a> 
+						</div>
+					</div>				
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
