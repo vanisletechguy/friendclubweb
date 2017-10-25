@@ -44,6 +44,22 @@ class UsersController < ApplicationController
 
 	def news_feed
 		@posts = Post.all
+
+		@all_posts = Post.all
+		
+		@all_posts.each do |post|
+
+			if current_user.not_friends_with? post.user.id
+				@posts -= [post]
+			else
+				#we are friends
+
+			end
+		end
+
+
+
+				#@user = User.where(email: params[:user])
 	end
 	
 	def show
