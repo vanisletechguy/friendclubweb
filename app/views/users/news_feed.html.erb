@@ -1,10 +1,12 @@
-<h2>My Posts</h2>
+<h2>My News Feed</h2>
 
 <table class="table table-bordered">
 
 	<tbody>
 		<% @posts.each do |post| %>
 			<tr>
+				<td><%= post.user.first_name %></td>
+				<td><%= post.user.last_name %></td>
 				<td><%= post.title %></td>
 				<td><%= post.content %></td>
 				<td><%= image_tag post.image.thumb %></td>

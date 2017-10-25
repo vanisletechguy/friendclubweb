@@ -42,6 +42,10 @@ class UsersController < ApplicationController
 		@current_friend = User.find(params[:friend])
 	end
 
+	def news_feed
+		@posts = Post.all
+	end
+	
 	def show
 		@user = User.find(params[:id])
 	end
