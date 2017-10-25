@@ -1,7 +1,9 @@
 module Api
 	module V1
 		class PostsController < ApplicationController
+			skip_before_action :verify_authenticity_token
 			respond_to :json
+
 
 			def index
 				#all posts
@@ -23,14 +25,24 @@ module Api
 			def create
 				#respond_with Post.create(params[:friendship])
 			
-			    @post = User.first.posts.build(post_params)
+				#@user = User.where(email: params[:user]).first
+				@all_users = User.all
+				@api_user = @all_users.find_by_email(params[:email])
+				#@api_user = @all_users.first
+				#if (@user = User.find_by_email(params[:user][:email])) && @user.valid_password?(params[:user][:password])
 
 
-				if @post.save
-					render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
-				else
-					render json: {status: 'ERROR', message:'Post Not Saved', data:@post}, status: :unprocessable_entity
+				if @api_user
+					@post = @api_user.posts.build(post_params)
+
+					if @post.save
+						render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
+					else
+						render json: {status: 'ERROR', message:'Post Not Saved', data:@post}, status: :unprocessable_entity
+					end
 				end
+
+			    
 			end
 		
 			def update
