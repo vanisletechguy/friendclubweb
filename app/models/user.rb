@@ -7,7 +7,8 @@ class User < ApplicationRecord
     mount_uploader :avatar, AvatarPicUploader
   	
   	has_many :friendships  
-  	has_many :friends, through: :friendships     
+  	has_many :friends, through: :friendships
+  	has_many :posts     
 
 	def full_name
     	return "#{first_name} #{last_name}".strip if (first_name || last_name) 
