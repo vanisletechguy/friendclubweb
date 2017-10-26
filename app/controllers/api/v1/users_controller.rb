@@ -1,36 +1,42 @@
 module Api
 	module V1
 		class UsersController < ApplicationController
-			respond_to :json
+			respond_to :json	
 
-			def index
-				#all posts
-				#respond_with User.all
+			def index	#all users
 				@users = User.all
 				render json: {status: 'SUCCESS', message:'Loaded Users', data:@users}, status: :ok
 			end
 
-			def show
-				#respond_with User.find(params[:id])
-
+			def show #show 1 user
 				@user = User.find(params[:id])
 				render json: {status: 'SUCCESS', message:'Loaded User', data:@user}, status: :ok
-
 			end
 
-			def create
+			def create #create new user
 				#respond_with Post.create(params[:friendship])
 			end
 		
-			def update
+			def update #edit user profile
 				#respond_with Post.update(params[:id], params[:friendship])
 			end
 			
-			def destroy
+			def destroy #destroy user account
 				#respond_with Post.destroy(params[:id])
 			end
 
-			def my_friends
+			def my_friends #a users friends
+				@all_users = User.all
+				@api_user = @all_users.last ####uses last user in list, need to change
+				@friendships = @api_user.friends
+				render json: {status: 'SUCCESS', message:'Loaded friendships', data:@friendships}, status: :ok
+			end
+
+
+			def my_posts #all my posts
+			end
+
+			def news_feed #posts from my friends only
 			end
 		end
 	end

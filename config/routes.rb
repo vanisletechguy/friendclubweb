@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
 
-  	devise_for :users, :controllers => { :registrations => "user/registrations" }
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
 
 	namespace :api, defaults: {format: 'json'} do 
   		namespace :v1 do
-  			resources :users
+  			resources :users, :controllers => {:my_friends => "user/my_friends"}
   			resources :posts
+        resources :friendships
+
+        # map.resources :users, :path_names => {:my_friends => 'my_friends'}
+        get 'my_friends', to: 'users#my_friends'
+
   		end
   	end
   	
-  	resources :users, only: [:show]
-  	resources :friendships
+	resources :users, only: [:show]
+	resources :friendships
 	resources :posts
 
-  	root 'welcome#index'
+	root 'welcome#index'
 	get 'my_friends', to: 'users#my_friends'
 	get 'search_friends', to: 'users#search'
 	post 'add_friend', to: 'users#add_friend'

@@ -56,9 +56,6 @@ class UsersController < ApplicationController
 
 			end
 		end
-
-
-
 				#@user = User.where(email: params[:user])
 	end
 	
