@@ -41,7 +41,9 @@ test:
 
 production:
   adapter: postgresql
-  database: friend_club_production
+  database: dccf3f9a7ijrjk
+  user: aloswhaguxmgnh
+  password: 03c3fd3917f5d2497cb9af8d3bde3d691f7646469d53dca725b6f616907a0208
   pool: 5
   timeout: 5000
   # <<: *default
