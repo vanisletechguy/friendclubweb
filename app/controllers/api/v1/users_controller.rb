@@ -28,7 +28,8 @@ module Api
 			def my_friends #a users friends
 				@all_users = User.all
 				@api_user = @all_users.last ####uses last user in list, need to change
-				@friendships = @api_user.friends
+				#@friendships = @api_user.friends
+				@friendships = @all_users  #currently shows all users ##change w/tokens
 				render json: {status: 'SUCCESS', message:'Loaded friendships', data:@friendships}, status: :ok
 			end
 
