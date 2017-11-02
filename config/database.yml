@@ -40,6 +40,8 @@ test:
   # database: db/test.sqlite3
 
 production:
+  host: ec2-54-221-210-126.compute-1.amazonaws.com
+  port: 5432
   adapter: postgresql
   database: d932hqt8uvduhl
   user: yboayftblatzxf
