@@ -9,7 +9,8 @@ module Api
 			end
 
 			def show #show 1 user
-				@user = User.find(params[:id])
+				#@user = User.find(params[:id])
+				@user = @current_user
 				render json: {status: 'SUCCESS', message:'Loaded User', data:@user}, status: :ok
 			end
 
@@ -27,9 +28,10 @@ module Api
 
 			def my_friends #a users friends
 				@all_users = User.all
-				@api_user = @all_users.last ####uses last user in list, need to change
+				@api_user = @current_user ####uses last user in list, need to change
 				#@friendships = @api_user.friends
-				@friendships = @all_users  #currently shows all users ##change w/tokens
+				@friendships = @api_user.friends
+				#@friendships = @all_users  #currently shows all users ##change w/tokens
 				render json: {status: 'SUCCESS', message:'Loaded friendships', data:@friendships}, status: :ok
 			end
 
