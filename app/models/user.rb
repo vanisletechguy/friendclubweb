@@ -1,14 +1,18 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base #ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	acts_as_token_authenticatable
+	devise :database_authenticatable, :registerable,
+		:recoverable, :rememberable, :trackable, :validatable
 
+	
     mount_uploader :avatar, AvatarPicUploader
   	
   	has_many :friendships  
   	has_many :friends, through: :friendships
   	has_many :posts     
+
+	#has_secure_password
 
 	def full_name
     	return "#{first_name} #{last_name}".strip if (first_name || last_name) 
@@ -45,4 +49,9 @@ class User < ApplicationRecord
 	def self.matches(field_name, param)
 		where("lower(#{field_name}) like ?", "%#{param}%")
 	end
+
+	def authenticate(submitted_password)
+	  self.valid_password?(submitted_password)
+	end
+
 end

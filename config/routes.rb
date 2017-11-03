@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 	get 'my_posts', to: 'users#my_posts'
 	get 'view_friend', to: 'users#view_friend'
 	get 'news_feed', to: 'users#news_feed'
-
+	post 'authenticate', to: 'authentication#authenticate' #api auth token
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
