@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 	namespace :api, defaults: {format: 'json'} do 
   		namespace :v1 do
   			resources :users, :controllers => {:my_friends => "user/my_friends"}
+			resources :users, :controllers => {:show => "user/show"}
   			resources :posts
         resources :friendships
 
         # map.resources :users, :path_names => {:my_friends => 'my_friends'}
         get 'my_friends', to: 'users#my_friends'
+        get 'show', to: 'users#show'
 
   		end
   	end
