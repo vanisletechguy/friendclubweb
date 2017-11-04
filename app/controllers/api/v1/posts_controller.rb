@@ -26,12 +26,16 @@ module Api
 				#respond_with Post.create(params[:friendship])
 			
 				#@user = User.where(email: params[:user]).first
-				@all_users = User.all
-				@api_user = @all_users.find_by_email(params[:email])
+				
+
+				##@all_users = User.all
+				##@api_user = @all_users.find_by_email(params[:email])
+				
+
 				#@api_user = @all_users.first
 				#if (@user = User.find_by_email(params[:user][:email])) && @user.valid_password?(params[:user][:password])
 
-
+				@api_user = @current_user
 				if @api_user
 					@post = @api_user.posts.build(post_params)
 
@@ -56,7 +60,7 @@ module Api
 			private
 
 			def post_params
-				params.permit(:title, :content, :longitude, :latitude)### fix
+				params.permit(:title, :content, :longitude, :latitude, :image)### fix
 			end
 		end
 	end
