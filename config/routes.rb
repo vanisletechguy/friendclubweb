@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   		namespace :v1 do
   			resources :users, :controllers => {:my_friends => "user/my_friends"}
 			resources :users, :controllers => {:show => "user/show"}
-  			resources :posts
+  			resources :posts, :controllers => {:create => "posts/create"}
         resources :friendships
 
         # map.resources :users, :path_names => {:my_friends => 'my_friends'}
