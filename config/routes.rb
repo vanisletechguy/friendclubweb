@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         # map.resources :users, :path_names => {:my_friends => 'my_friends'}
         get 'my_friends', to: 'users#my_friends'
         get 'show', to: 'users#show'
-        get 'create', to: 'posts#create'
+        post 'create', to: 'posts#create'
 
   		end
   	end
