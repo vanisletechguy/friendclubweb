@@ -8,7 +8,7 @@
 #
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
 user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: File.open(image_data))
-
+user1.avatar = image_data
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
 user2 = User.create!(first_name:"Joe", last_name: "Smith", email: "joesmith@gmail.com", password: "abcdef", avatar: image_data)
 
