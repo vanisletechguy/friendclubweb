@@ -1,7 +1,5 @@
-
 <div class="container container-table">
 	<h2>My Posts</h2>
-
 	<table class="table table-bordered text-center">
 		<tbody>
 			<% @posts.each do |post| %>
@@ -10,16 +8,16 @@
 						<div class="card-header">
 							<ul class="nav nav-tabs card-header-tabs">
 							  <li class="nav-item">
-							    <a class="nav-link active" href="#">Show Post</a>
+							    <%= link_to 'Show Post', post_path(post.id) %>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" href="#">Comment</a>
+							    <a class="nav-link" href="#">Comments</a>
 							  </li>
 							</ul>
 						</div>
 						<div class="card-block">
 							<h4 class="card-title"><%= post.title %></h4>
-							<%= image_tag post.image.thumb, :class => "card-img-top"%>
+							<%= image_tag post.image, :class => "card-img-top"%>
 							<p class="card-text"><%= post.content %></p>
 							<a href="#">Show</a> 
 						</div>
