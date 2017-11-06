@@ -9,7 +9,7 @@
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
 filename = 'some-filename.jpg'
 
-File.new(filename, 'wb') do |file|
+File.open(filename, 'wb') do |file|
   if image_data.respond_to?(:read)
     IO.copy_stream(image_data, file)
   else
