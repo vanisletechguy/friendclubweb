@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
-filename = File.new(image_data)
+image_data = http.get('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
+#filename = File.new(image_data)
 
 user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix2@gmail.com", password: "abcdef", avatar: filename)
 #user1.avatar = filename
