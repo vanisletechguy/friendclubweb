@@ -6,16 +6,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <style>
+  .jumbotron{background-color: #FFFFFF!important; padding-top: 0px; padding-bottom: 0px;}
+  .body{margin-top: 0px;}
+  </style>
+
   </head>
 
   <body>
-  	<%= render 'layouts/navigation' %>
-
      <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <%= bootstrap_flash %>
-          <%= yield %>
+
+
+      <div class="container">
+        <div class="jumbotron" style="text-align: center;">
+          <h1>Friend Club</h1>      
+          <p>Helping friends share the joys of life.</p>
+        </div>
+      </div>
+
+
+          <%= render 'layouts/navigation' %>
+          <%= render 'layouts/left_Navbar' %>
+          <div class="col-sm-7">
+            <%= yield %>
+          </div>
+          <%= render 'layouts/right_Navbar' %>
         </div>
       </div><!--/row-->
 

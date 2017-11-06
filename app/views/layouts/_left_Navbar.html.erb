@@ -1,0 +1,33 @@
+<style>
+.well {
+    background-color: rgba(155,160,100,0.5) !important;
+}
+</style>
+<div class="col-sm-3 well">
+  <div class="well">
+    <p><a href="#">My Profile</a></p>
+    <% if current_user %>
+      <%= image_tag current_user.avatar.thumb.url %>
+    <% end %>
+  </div>
+  <div class="well">
+    <p><a href="#">Interests</a></p>
+    <p>
+      <span class="label label-default">News</span>
+      <span class="label label-primary">W3Schools</span>
+      <span class="label label-success">Labels</span>
+      <span class="label label-info">Football</span>
+      <span class="label label-warning">Gaming</span>
+      <span class="label label-danger">Friends</span>
+    </p>
+  </div>
+  <div class="alert alert-success fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <p><strong>Attention!</strong></p>
+    You have friend requests
+  </div>
+  <p><a href="#">Request 1</a></p>
+  <p><a href="#">Request 2</a></p>
+  <p><a href="#">Request 3</a></p>
+</div>
+

@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top">
+<div class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <%= link_to 'Friend Club', root_path, class: "navbar-brand" %>
     <% if current_user %>
@@ -15,14 +15,14 @@
           <li><%= link_to "Profile", edit_user_registration_path %></li>
           <li><%= link_to "Settings", edit_user_registration_path %></li>
 
-          <li><%= link_to "New Post", new_post_path %></li>
+          <li><%= link_to "New Post", new_post_path, class: "btn btn-xs btn-success", style: "color: blue" %></li>
         </ul>
         <ul class="nav navbar-right col-md-4">
-          <li class="col-md-8 user-name text-right">
+          <li class="col-md-8 user-name text-right", style="color:blue">
             <i class="fa fa-user"></i>
             <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
           </li>
-          <li class="col-md-4 logout"><%= link_to("logout",destroy_user_session_path, class: "btn btn-xs btn-danger",method: :delete) %></li>
+          <li class="col-md-3 logout"><%= link_to("logout",destroy_user_session_path, class: "btn btn-xs btn-danger",method: :delete) %></li>
         </ul>
       </div>
     <% end %>
