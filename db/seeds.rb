@@ -18,7 +18,7 @@ File.new(filename, 'wb') do |file|
 end
 
 user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: filename)
-user1.avatar = image_data
+#user1.avatar = image_data
 
 
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
