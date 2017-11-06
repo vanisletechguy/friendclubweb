@@ -11,7 +11,7 @@ filename = File.new(image_data)
 
 
 user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix2@gmail.com", password: "abcdef", avatar: avatar)
-user1.avatar << filename
+#user1.avatar << filename
 #user1.avatar = new File(image_data)
 #user1.avatar = filename
 
