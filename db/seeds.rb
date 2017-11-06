@@ -10,7 +10,7 @@ image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwy
 #filename = File.new(image_data)
 
 
-user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix2@gmail.com", password: "abcdef", avatar: image_data)
+user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix2@gmail.com", password: "abcdef", avatar: open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg'))
 #user1.avatar = new File(image_data)
 #user1.avatar = filename
 
