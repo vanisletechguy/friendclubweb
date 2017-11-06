@@ -21,14 +21,6 @@ CarrierWave.configure do |config|
     :aws_access_key_id      => ENV.fetch('AWS_ACCESS_KEY_ID'),            # required
     :aws_secret_access_key  => ENV.fetch('AWS_SECRET_ACCESS_KEY'),     # required
     :region                 => ENV.fetch('AWS_REGION')                        # optional, defaults to 'us-east-1'
-  
-
-
- bucket: ENV.fetch('S3_BUCKET_NAME'),
-    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-    s3_region: ENV.fetch('AWS_REGION'),
-
   }
   config.fog_directory  = ENV.fetch('S3_BUCKET_NAME')               # required
   #config.fog_host       = 'https://assets.example.com'           # optional, defaults to nil
