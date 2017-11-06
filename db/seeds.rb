@@ -7,8 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
-user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: File.open(image_data))
+filename = 'some-filename.jpg'
+
+File.new(filename, 'wb') do |file|
+  if image_data.respond_to?(:read)
+    IO.copy_stream(image_data, file)
+  else
+    file.write(image_data)
+  end
+end
+
+user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: filename)
 user1.avatar = image_data
+
+
 image_data = open('https://s3.us-east-2.amazonaws.com/maja-fc-photobucket/zackwylde.jpg')
 user2 = User.create!(first_name:"Joe", last_name: "Smith", email: "joesmith@gmail.com", password: "abcdef", avatar: image_data)
 
