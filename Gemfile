@@ -47,6 +47,7 @@ gem 'simple_form_fancy_uploads'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem "pundit"
 gem 'rails_12factor', group: :production
+gem "fog"
 gem "fog-aws"
 
 group :development, :test do
