@@ -17,7 +17,7 @@ File.open(filename, 'wb') do |file|
   end
 end
 
-user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: filename)
+user1 = User.create!(first_name:"Jimi", last_name: "Hendrix", email: "jhendrix@gmail.com", password: "abcdef", avatar: filename.open)
 #user1.avatar = image_data
 
 
