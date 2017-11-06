@@ -20,6 +20,3 @@ module VacationDiary
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-
-
-#curl -H "Content-Type: application/json" -X POST -d '{"email":"test1@test.com","password":"abcdef"}' http://localhost:3000/authenticate
