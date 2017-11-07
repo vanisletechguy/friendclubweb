@@ -27,7 +27,7 @@ module Api
 				@api_user = @current_user
 				if @api_user
 					#@post = new Post(post_params)
-					@post = @api_user.posts.build(post_params)
+					@post = @api_user.posts.build!(post_params)
 					
 					@post_image = decode_image_data(post_params[:image_data])
 					@post.image = @post_image
