@@ -27,12 +27,14 @@ module Api
 				@api_user = @current_user
 				if @api_user
 					#@post = new Post(post_params)
-					@post = @api_user.posts.build(post_params)
+
+					@post = Post.create(post_params)
+					@api_user.posts.build(@post)
 					
-					@post_image = decode_image_data(post_params[:image_data])
-					#@post.image = @post_image
+					#@post_image = decode_image_data(post_params[:image_data])
+					
 					#@post = @api_user.posts.build(post_params)
-					if @post.save
+					if @post #@post.save
 						render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
 					else
 						render json: {status: 'ERROR', message:'Post Not Saved', data:@post}, status: :unprocessable_entity
