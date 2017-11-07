@@ -64,8 +64,8 @@ module Api
 				data = StringIO.new(Base64.decode64(image_data))
 				# assign some attributes for carrierwave processing
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
-				data.original_filename = "upload.png"
-				data.content_type = "image/png"
+				data.original_filename = "upload.jpeg"
+				data.content_type = "image/jpeg"
 				# return decoded data
 				data
 			end
