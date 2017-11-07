@@ -28,8 +28,8 @@ module Api
 				if @api_user
 					#@post = new Post(post_params)
 
-					@post = Post.create(post_params)
-					@api_user.posts.build(@post)
+					#@post = Post.create(post_params)
+					@api_user.posts.build(post_params)
 					
 					#@post_image = decode_image_data(post_params[:image_data])
 					
@@ -53,8 +53,8 @@ module Api
 			private
 
 			def post_params
-				#json = JSON.parse(request.raw_post)
-				#params = ActionController::Parameters.new(json)
+				json = JSON.parse(request.raw_post)
+				params = ActionController::Parameters.new(json)
 				params.permit(:title, :content, :longitude, :latitude, :image_data, :image)### fix
 				params[:image] = decode_image_data(params[:image_data])
 			end
