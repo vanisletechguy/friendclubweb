@@ -30,7 +30,7 @@ module Api
 					@post = @api_user.posts.build(post_params)
 					
 					@post_image = decode_image_data(post_params[:image_data])
-					@post.image = @post_image
+					#@post.image = @post_image
 					#@post = @api_user.posts.build(post_params)
 					if @post.save
 						render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
