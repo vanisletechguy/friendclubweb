@@ -37,6 +37,10 @@ module Api
 
 				@api_user = @current_user
 				if @api_user
+
+
+
+
 					@post = @api_user.posts.build(post_params)
 
 					if @post.save
@@ -60,7 +64,23 @@ module Api
 			private
 
 			def post_params
-				params.permit(:title, :content, :longitude, :latitude, :image)### fix
+				json = JSON.parse(request.raw_post)
+				params = ActionController::Parameters.new(json)
+				params.permit(:title, :content, :longitude, :latitude, :image_data)### fix
+				params[:image] = decode_picture_data(params[:image_data])
+			end
+
+			def decode_image_data image_data
+				# decode the base64
+				data = StringIO.new(Base64.decode64(picture_data))
+				
+				# assign some attributes for carrierwave processing
+				data.class.class_eval { attr_accessor :original_filename, :content_type }
+				data.original_filename = "upload.png"
+				data.content_type = "image/png"
+				
+				# return decoded data
+				data
 			end
 		end
 	end
