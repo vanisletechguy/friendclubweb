@@ -4,7 +4,6 @@ module Api
 			#skip_before_action :verify_authenticity_token
 			respond_to :json
 
-
 			def index
 				#all posts
 				#respond_with Post.all
@@ -57,25 +56,22 @@ module Api
 			private
 
 			def post_params
-				#json = JSON.parse(request.raw_post)
-				#params = ActionController::Parameters.new(json)
-				params.permit(:title, :content, :longitude, :latitude, :image_data, :image)### fix
+				json = JSON.parse(request.raw_post)
+				params = ActionController::Parameters.new(json)
+				params.require(:post).permit(:title, :content, :longitude, :latitude, :image_data)### fix
 				params[:image] = decode_image_data(params[:image_data])
 			end
 
 			def decode_image_data image_data
 				# decode the base64
 				data = StringIO.new(Base64.decode64(image_data))
-				
 				# assign some attributes for carrierwave processing
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
 				data.original_filename = "upload.png"
 				data.content_type = "image/png"
-				
 				# return decoded data
 				data
 			end
-
 		end
 	end
 end
