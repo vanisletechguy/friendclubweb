@@ -37,20 +37,13 @@ module Api
 
 				@api_user = @current_user
 				if @api_user
-
-
-
-
 					@post = @api_user.posts.build(post_params)
-
 					if @post.save
 						render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
 					else
 						render json: {status: 'ERROR', message:'Post Not Saved', data:@post}, status: :unprocessable_entity
 					end
-				end
-
-			    
+				end 
 			end
 		
 			def update
@@ -66,7 +59,7 @@ module Api
 			def post_params
 				json = JSON.parse(request.raw_post)
 				params = ActionController::Parameters.new(json)
-				params.permit(:title, :content, :longitude, :latitude, :image_data)### fix
+				params.require(:post).permit(:title, :content, :longitude, :latitude, :image_data)### fix
 				params[:image] = decode_image_data(params[:image_data])
 			end
 
