@@ -72,7 +72,7 @@ module Api
 
 			def decode_image_data image_data
 				# decode the base64
-				data = StringIO.new(Base64.decode64(picture_data))
+				data = StringIO.new(Base64.decode64(image_data))
 				
 				# assign some attributes for carrierwave processing
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
