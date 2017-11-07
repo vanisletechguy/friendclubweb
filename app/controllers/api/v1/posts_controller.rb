@@ -36,7 +36,9 @@ module Api
 
 				@api_user = @current_user
 				if @api_user
-					@post = @api_user.posts.build(post_params)
+					@post = new Post(post_params)
+					@api_user.posts.build(@post)
+					#@post = @api_user.posts.build(post_params)
 					if @post.save
 						render json: {status: 'SUCCESS', message:'Saved Post', data:@post}, status: :ok
 					else
