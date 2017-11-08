@@ -63,7 +63,7 @@ module Api
 			def post_params
 				json = JSON.parse(request.raw_post)
 				params = ActionController::Parameters.new(json)
-				params.require(:post).permit(:title, :content, :longitude, :latitude, :image_data, :image)### fix
+				params.permit(:title, :content, :longitude, :latitude, :image_data, :image)### fix
 				#params[:image] = decode_image_data(params[:image_data])
 			end
 
