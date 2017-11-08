@@ -22,7 +22,7 @@ class PostPolicy < ApplicationPolicy
       current_user.present?
   end
   def edit?
-    record.user_id == current_user.user.id
+    record.user_id == current_user.id
   end
 
   def destroy?
