@@ -5,15 +5,7 @@ module Api
 			respond_to :json
 			
 			def index
-				#all posts
-				#respond_with Post.all
-				#@posts = Post.all
-				#render json: {status: 'SUCCESS', message:'Loaded Posts', data:@posts}, status: :ok
-			
-
-
 				################################## this will be slow should be changed
-
 				@posts = Post.all
 				@all_posts = Post.all
 				@all_posts.each do |post|
@@ -24,13 +16,9 @@ module Api
 						end
 					else
 						#we are friends
-
 					end
 				end
 				render json: {status: 'SUCCESS', message:'Loaded Posts', data:@posts}, status: :ok
-
-
-
 			end
 
 			def show
