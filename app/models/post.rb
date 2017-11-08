@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 	belongs_to :user
     mount_uploader :image, AvatarPicUploader
-    mount_base64_uploader :image, AvatarUploader
+    mount_base64_uploader :image, AvatarPicUploader
     #before_save :decode_image_data, :if => :image_data_provided?
 
 
