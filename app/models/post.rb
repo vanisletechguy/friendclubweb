@@ -16,4 +16,8 @@ class Post < ApplicationRecord
 		data
 	end
 
+	def image_data_provided?
+		!self.image.blank?
+	end
+
 end

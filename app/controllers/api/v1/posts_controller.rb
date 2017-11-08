@@ -4,9 +4,7 @@ module Api
 			#skip_before_action :verify_authenticity_token
 			respond_to :json
 			
-			def image_data_provided?
-				!self.image.blank?
-			end
+			
 
 
 			def index
