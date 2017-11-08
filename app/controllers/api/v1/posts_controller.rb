@@ -81,7 +81,7 @@ module Api
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
 				data.original_filename = SecureRandom.hex(16) + ".png"
 				data.content_type = "image/png"
-				self.image = data
+				#self.image = data
 				# return decoded data
 				data
 			end
