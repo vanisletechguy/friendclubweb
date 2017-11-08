@@ -43,6 +43,7 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'jquery-rails'
 gem 'font-awesome-less'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
+gem 'carrierwave-base64'
 gem 'simple_form_fancy_uploads'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem "pundit"
