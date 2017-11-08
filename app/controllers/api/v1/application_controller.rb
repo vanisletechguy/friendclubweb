@@ -8,7 +8,7 @@ module Api
       before_action :authenticate_request
 
 		attr_reader :current_user
-    attr_reader :image_data 
+    attr_reader :sent_image_data 
 
 			private 
 
