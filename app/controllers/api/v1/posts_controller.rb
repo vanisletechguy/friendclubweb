@@ -17,7 +17,7 @@ module Api
 				@posts = Post.all
 				@all_posts = Post.all
 				@all_posts.each do |post|
-					if current_user.not_friends_with? post.user.id 
+					if current_user.not_friends_with? post.user.id || post.user.id == current_user.id
 						@posts -= [post]
 					else
 						#we are friends
