@@ -35,7 +35,7 @@ module Api
 					@image = decode_image_data(params[:image_data])
 
 					#@api_user.posts.build(post_params)
-					@post = Post.create(post_params, image: @image)
+					@post = @api_user.posts.build(post_params, image: @image)
 
 
 
