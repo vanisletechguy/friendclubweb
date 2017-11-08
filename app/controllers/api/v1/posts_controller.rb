@@ -12,13 +12,16 @@ module Api
 			
 
 
-##################################
+				################################## this will be slow should be changed
 
 				@posts = Post.all
 				@all_posts = Post.all
 				@all_posts.each do |post|
-					if current_user.not_friends_with? post.user.id && post.user.id != current_user.id
-						@posts -= [post]
+					if current_user.not_friends_with? post.user.id 
+						if post.user.id != current_user.id
+							@posts -= [post]
+						else
+						end
 					else
 						#we are friends
 
