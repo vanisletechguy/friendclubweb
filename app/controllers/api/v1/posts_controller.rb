@@ -7,8 +7,8 @@ module Api
 			def index
 				#all posts
 				#respond_with Post.all
-				@posts = Post.all
-				render json: {status: 'SUCCESS', message:'Loaded Posts', data:@posts}, status: :ok
+				#@posts = Post.all
+				#render json: {status: 'SUCCESS', message:'Loaded Posts', data:@posts}, status: :ok
 			
 
 
