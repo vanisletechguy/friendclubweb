@@ -70,12 +70,13 @@ module Api
 				#@image = decode_image_data(params[:image])
 				params.permit(:title, :content, :longitude, :latitude, :image_data)### fix
 				#params[:image] = @image
-				params[:image] = decode_image_data(params[:image_data])
+				@sent_image_data = params[:image_data]
+				params[:image] = decode_image_data
 			end
 
-			def decode_image_data image_data
+			def decode_image_data
 				# decode the base64
-				data = StringIO.new(Base64.decode64(image_data))
+				data = StringIO.new(Base64.decode64(@sent_image_data)
 				# assign some attributes for carrierwave processing
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
 				data.original_filename = SecureRandom.hex(16) + ".png"
