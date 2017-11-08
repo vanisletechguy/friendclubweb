@@ -3,6 +3,12 @@ module Api
 		class PostsController < ApplicationController
 			#skip_before_action :verify_authenticity_token
 			respond_to :json
+			before_save :decode_image_data, :if => :image_data_provided?
+
+			def image_data_provided?
+				!self.image.blank?
+			end
+
 
 			def index
 				#all posts
@@ -70,13 +76,14 @@ module Api
 				#params[:image] = decode_image_data(params[:image])
 			end
 
-			def decode_image_data image_data
+			def decode_image_data 
 				# decode the base64
-				data = StringIO.new(Base64.decode64(image_data))
+				data = StringIO.new(Base64.decode64(self.image)))
 				# assign some attributes for carrierwave processing
 				data.class.class_eval { attr_accessor :original_filename, :content_type }
-				data.original_filename = "upload.jpeg"
-				data.content_type = "image/jpeg"
+				data.original_filename = SecureRandom.hex(16) + ".png"
+				data.content_type = "image/png"
+				self.image = data
 				# return decoded data
 				data
 			end
